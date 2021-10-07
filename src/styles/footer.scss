@@ -1,0 +1,12 @@
+.footer {
+    padding: 15px 0;
+    border: 2px solid $mark;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    &__text {
+        margin: 0;
+        text-align: center;
+    }
+}

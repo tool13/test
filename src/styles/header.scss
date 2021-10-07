@@ -1,0 +1,43 @@
+.header {
+    padding: 15px 0;
+    border: 2px solid $mark;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    $this: &;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        max-width: 200px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: inherit;
+        font-weight: bold;
+
+        &:hover {
+            #{$this}__text {
+                color: $mark;
+            }
+            
+            #{$this}__img {
+                transform: rotate(-10deg);
+            }
+        }
+    }
+    
+    &__img {
+        transition: transform .3s ease;
+    }
+    
+    &__text {
+        transition: color .3s ease;
+    }
+}
