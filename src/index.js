@@ -2,14 +2,16 @@
 import './styles/styles.scss';
 
 //js
+import Popup from './js/popup.js';
+import emailCheck from './js/validate.js';
+
 const timeLimit = 5000;
-const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const video = document.querySelector('.js-video');
 const buttonPlay = document.querySelector('.js-play');
 const videoOverlay = document.querySelector('.js-overlay');
 
-const popup = document.querySelector('.js-popup');
+const popup = new Popup(document.querySelector('.js-popup'));
 
 const form = document.querySelector('.js-form');
 const emailInput = form.querySelector('.js-input');
@@ -33,23 +35,13 @@ emailInput.addEventListener('input', () => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (emailCheck()) {
-        popup.classList.remove('visible');
+    if (emailCheck(emailInput) === true) {
+        popup.hide();
         video.play();
+    } else {
+        tip.textContent = emailCheck(emailInput);
     }
 });
-
-function emailCheck() {
-    if (emailInput.value.trim() === '') {
-        tip.textContent = emailInput.dataset.empty;
-        return false;
-    }
-    if (!regEmail.test(emailInput.value)) {
-        tip.textContent = emailInput.dataset.wrong;
-        return false;
-    }
-    return true;
-}
 
 function startTimer() {
     setTimeout(function checkTime() {
@@ -59,7 +51,7 @@ function startTimer() {
             stopTimer();
             video.removeEventListener('play', startTimer);
             video.removeEventListener('pause', stopTimer);
-            popup.classList.add('visible');
+            popup.show();
             if (document.fullscreenElement === video) {
                 document.exitFullscreen();
             }
