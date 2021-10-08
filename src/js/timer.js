@@ -1,4 +1,5 @@
 const timeLimit = 5000;
+const second = 1000;
 let timerId;
 let timer = 0;
 
@@ -6,13 +7,13 @@ export {startTimer, stopTimer};
 
 function startTimer(actions) {
     setTimeout(function checkTime() {
-        timer += 1000;
-        timerId = setTimeout(checkTime, 1000);
         if (timer >= timeLimit) {
             stopTimer();
             actions();
         }
-    }, 1000);
+        timer += second;
+        timerId = setTimeout(checkTime, second);
+    }, second);
 }
 
 function stopTimer() {
