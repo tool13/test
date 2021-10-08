@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>test</title>
+  <script defer src="./app.js"></script><link href="./main.css" rel="stylesheet"></head>
+
+  <body>
+    <div id="root" class="page-wrapper">
+        
+        <header class="header">
+            <div class="container header__wrapper">
+                <a href="#" class="header__logo">
+                    <img class="header__img" src="logo.svg" alt="">
+                    <span class="header__text">unlimited streaming</span>
+                </a>
+                <ul class="header__socials socials">
+                    <li><a class="socials__link" href="#"><img src="facebook.svg" alt=""></a></li>
+                    <li><a class="socials__link" href="#"><img src="twitter.svg" alt=""></a></li>
+                    <li><a class="socials__link" href="#"><img src="youtube.svg" alt=""></a></li>
+                    <li><a class="socials__link" href="#"><img src="instagram.svg" alt=""></a></li>
+                    <li><a class="socials__link" href="#"><img src="tiktok.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="container">
+                <h1 class="content__slogan">Original series, all-time favorites TV Shows, hit movies, kids programming, and more</h1>
+                <div class="content__holder">
+                    <video class="content__video js-video" controls muted>
+                        <source src="video.mp4" type="video/mp4;">
+                    </video>
+                    <div class="content__overlay js-overlay"></div>
+                    <button class="content__btn js-play" type="button"></button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="footer__text">© Copyright 2021</p>
+            </div>
+        </footer>
+
+        <article class="popup js-popup">
+            <form class="popup__form js-form" action="#" method="POST">
+                <p class="popup__text">To continue viewing, you need to register</p>
+                <label class="popup__label">
+                    <p class="popup__name">* Email</p>
+                    <input type="text" class="popup__input js-input" placeholder="example@email.com" data-empty="! Field is empty" data-wrong="! Please enter a valid email addres like example@email.com">
+                    <p class="popup__error js-error"></p>
+                </label>
+                <button class="popup__submit" type="submit">Sign up</button>
+            </form>
+        </article>
+
+    </div>
+  </body>
+</html>
